@@ -1,84 +1,95 @@
-import React, {useState} from 'react'
-import "./navbar.css"
-
-import {MdTravelExplore} from 'react-icons/md'
-import {AiFillCloseCircle} from 'react-icons/ai'
-import {TbGridDots} from 'react-icons/tb'
+import React, { useState } from 'react'
+import './navbar.css'
+import planeimage from '../../Assets/Shear-Tourism-Orginal.png'
+import { AiFillCloseCircle } from 'react-icons/ai'
+import { TbGridDots } from 'react-icons/tb'
 
 export const Navbar = () => {
+  const [active, setActive] = useState('navBar')
 
-    const [active, setActive] = useState('navBar') ;
+  // function to toggle navBar
+  const showNav = () => {
+    setActive('navBar activeNavbar')
+  }
 
-    // function to toggle navBar
-    const showNav = ()=> {
-        setActive('navBar activeNavbar');
-    }
-
-    // function to remove navBar
-    const removeNavbar = ()=> {
-        setActive('navBar');
-    }
-
+  // function to remove navBar
+  const removeNavbar = () => {
+    setActive('navBar')
+  }
 
   return (
-    <section className='navBarSection' >
-        <header className='header flex'>
-            <div className='logoDiv'>
-                <a href='#' className='logo flex'>
-                    <h1> <MdTravelExplore className='icon' /> Travel</h1>
-                </a>
-            </div>
+    <section className="navBarSection">
+      <header className="header flex">
+        <div className="logoDiv">
+          <a href="#" className="logo flex">
+            <img
+              src={planeimage}
+              alt=" plane"
+            />
+            <h1> Share Tourism Empire</h1>
+          </a>
+        </div>
 
-            <div className={active}>
-                <ul className='navList flex'>
+        <div className={active}>
+          <ul className="navList flex">
+            <li className="navItem">
+              <a href="#" className="navLink">
+                Home
+              </a>
+            </li>
 
-                    <li className='navItem'>
-                        <a href='#' className='navLink'>Home</a>
-                    </li>
+            <li className="navItem">
+              <a href="#" className="navLink">
+                Packages
+              </a>
+            </li>
 
-                    <li className='navItem'>
-                        <a href='#' className='navLink'>Packages</a>
-                    </li>
+            <li className="navItem">
+              <a href="#" className="navLink">
+                Shop
+              </a>
+            </li>
 
-                    <li className='navItem'>
-                        <a href='#' className='navLink'>Shop</a>
-                    </li>
+            <li className="navItem">
+              <a href="#" className="navLink">
+                About
+              </a>
+            </li>
 
-                    <li className='navItem'>
-                        <a href='#' className='navLink'>About</a>
-                    </li>
+            <li className="navItem">
+              <a href="#" className="navLink">
+                Pages
+              </a>
+            </li>
 
-                    <li className='navItem'>
-                        <a href='#' className='navLink'>Pages</a>
-                    </li>
+            <li className="navItem">
+              <a href="#" className="navLink">
+                News
+              </a>
+            </li>
 
-                    <li className='navItem'>
-                        <a href='#' className='navLink'>News</a>
-                    </li>
+            <li className="navItem">
+              <a href="#" className="navLink">
+                Contact
+              </a>
+            </li>
 
-                    <li className='navItem'>
-                        <a href='#' className='navLink'>Contact</a>
-                    </li>
+            <button className="btn">
+              <a href="#">BOOK NOW</a>
+            </button>
+          </ul>
 
-                    <button className='btn'>
-                        <a href="#">BOOK NOW</a>
-                    </button>
+          <div onClick={removeNavbar} className="closeNavbar">
+            <AiFillCloseCircle className="icon" />
+          </div>
+        </div>
 
-                </ul>
-
-                <div onClick={removeNavbar} className="closeNavbar">
-                    <AiFillCloseCircle className='icon'/>
-                </div>
-
-            </div>
-
-            <div onClick={showNav} className="toggleNavbar">
-                    < TbGridDots className='icon' />
-            </div>
-
-        </header>
+        <div onClick={showNav} className="toggleNavbar">
+          <TbGridDots className="icon" />
+        </div>
+      </header>
     </section>
   )
 }
 
-export default Navbar;
+export default Navbar
